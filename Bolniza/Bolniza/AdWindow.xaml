@@ -1,0 +1,55 @@
+﻿<Window x:Class="Bolniza.AdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolniza"
+        mc:Ignorable="d"
+        Title="Больница" Height="400" Width="600">
+    <Grid Background="LightCyan">
+        <StackPanel Orientation="Vertical">
+            <Label Content="Отделение"/>
+            <ComboBox
+                ItemsSource="{Binding _ProductType}"
+                SelectedItem="{Binding CurrentProduct.ProductType}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label 
+                Content="ФИО"/>
+            <TextBox 
+                Height="27"
+                Text="{Binding CurrentProduct.Title}"/>
+            <Label 
+                Content="Диагноз"/>
+            <TextBox 
+                Height="27" 
+                Text="{Binding CurrentProduct.Description}"/>
+            <Label 
+                Content="Дата и время поступления в больницу"/>
+            <TextBox 
+                Height="27" 
+                Text="{Binding CurrentProduct.Date}"/>
+            <Label 
+                Content="Оставшиеся дни до выписки"/>
+            <TextBox 
+                Height="27"
+                Text="{Binding CurrentProduct.MinCostForAgent}"/>
+            <Button
+                x:Name="SaveButton" 
+                Content="Сохранить"
+                Click="SaveButton_Click"
+                Height="27"
+                Background="LightBlue"/>
+            <Button 
+                x:Name="BackButton"
+                Content="Назад"
+                Click="BackButton_Click"
+                Background="LightBlue"
+                Height="27"/>
+        </StackPanel>
+    </Grid>
+</Window>
