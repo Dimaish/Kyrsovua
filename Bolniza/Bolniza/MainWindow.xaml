@@ -99,6 +99,12 @@
                 ItemsSource="{Binding PacientList}"
                 x:Name="PacientListView"
                 BorderThickness="1">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="EditButton" Header="Редактировать" Click="EditButton_Click" Background="LightBlue"/>
+                        <MenuItem x:Name="DeleteButton" Header="Удалить" Click="DeleteButton_Click" Background="LightBlue"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
 
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -138,18 +144,15 @@
                                         <TextBlock Text="{Binding Title}"/>
                                     </StackPanel>
                                     <StackPanel Grid.Row="2">
-                                    <TextBlock Text="{Binding ProductType.Title}" />
+                                        <TextBlock Text="{Binding ProductType.Title}" />
 
-                                    <TextBlock Text="{Binding Description}" />
+                                        <TextBlock Text="{Binding Description}" />
                                     </StackPanel>
                                 </Grid>
                                 <StackPanel Grid.Column="2">
-                                    <TextBlock Text="Дата поступления" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Date}" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Осталось лежать:" HorizontalAlignment="Left"/>
-                                    <TextBlock  Text="{Binding MinCostForAgent}" HorizontalAlignment="Left"/>
-                                    <Button x:Name="EditButton" Content="Редактировать" Click="EditButton_Click" Background="LightBlue"/>
-                                    <Button x:Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Background="LightBlue"/>
+                                    <TextBlock Text="{Binding Date}" HorizontalAlignment="Right"/>
+                                    <TextBlock Text="Осталось:" HorizontalAlignment="Right"/>
+                                    <TextBlock  Text="{Binding MinCostForAgent}" HorizontalAlignment="Right"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
